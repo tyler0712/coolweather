@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.coolweather.app.model.City;
 import com.coolweather.app.model.Country;
@@ -80,6 +81,9 @@ public class CoolWeatherDB {
 
     // 从数据库读取某省下所有的城市信息
     public List<City> loadCities(int provinceId) {
+        Log.d("TAG", "loadCities: sss");
+
+
         List<City> list = new ArrayList<City>();
         Cursor cursor = db.query("City", null, "province_id=?", new String[]{String.valueOf(provinceId)}, null, null, null);
         if (cursor.moveToFirst()) {
